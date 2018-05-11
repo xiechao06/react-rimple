@@ -1,0 +1,35 @@
+{
+  "name": "react-rimple",
+  "version": "0.0.1",
+  "description": "react to rimple bridge",
+  "main": "build/index.cjs.js",
+  "module": "build/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rm -rf build",
+    "prepare": "./build.sh",
+    "build": "npx standard index.js && ./build.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xiechao06/react-rimple.git"
+  },
+  "author": "xiechao06@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xiechao06/react-rimple/issues"
+  },
+  "homepage": "https://github.com/xiechao06/react-rimple#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.6.1",
+    "rollup": "^0.58.2",
+    "rollup-plugin-babel": "^3.0.4",
+    "rollup-plugin-uglify": "^3.0.0",
+    "standard": "^11.0.1",
+    "standardjs": "^1.0.0-alpha"
+  }
+}
