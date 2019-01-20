@@ -7,11 +7,11 @@ react and [rimple](www.github.com/xiechao06/rimple) bridge
 $ npm i react-rimple
 ```
 
-# examples
+# example
 
 ```javascript
 import React, { Component } from 'react'
-import withSlots from 'react-rimple'
+import { withSlots } from 'react-rimple'
 import { slot } from 'rimple'
 
 let num = slot(1)
@@ -25,4 +25,9 @@ class App extends Component {
 
 export default withSlots({ num })(App)
 
+
+// update num somewhere, App will update
+
 ```
+
+checkout the `example` directory for a complete one
