@@ -1,6 +1,6 @@
 import React from 'react'
 
-const connect = function connect (slots) {
+export const withSlots = function withSlots (slots) {
   return function (Component) {
     class HOC extends React.Component {
       constructor (props) {
@@ -17,14 +17,10 @@ const connect = function connect (slots) {
         this.state = state
       }
       render () {
-        let { slots: origSlots, ...restProps } = this.props
-        slots = Object.assign(slots, origSlots)
-        let props = Object.assign({}, restProps, this.state, { slots })
+        let props = Object.assign({}, this.props, this.state, { slots })
         return <Component {...props} />
       }
     }
     return HOC
   }
 }
-
-export default connect
