@@ -1,1 +1,1 @@
-/Users/xiechao/workspace/react-rimple/example/../build/react-rimple.browser.js
+../../build/react-rimple.browser.js
