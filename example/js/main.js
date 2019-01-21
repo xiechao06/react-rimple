@@ -2,26 +2,38 @@
 const e = React.createElement
 const $num = rimple.slot(1)
 
-class LikeButton extends React.Component {
+class IncButton extends React.Component {
+  render () {
+    let { slots } = this.props
+    return e('button', {
+      onClick: () => $num.inc()
+    }, 'inc')
+  }
+}
+
+class DecButton extends React.Component {
+  render () {
+    let { slots } = this.props
+    return e('button', {
+      onClick: () => $num.dec()
+    }, 'dec')
+  }
+}
+
+class App extends React.Component {
   constructor (props) {
     super(props)
     this.state = { liked: false }
   }
 
   render () {
-    let { num } = this.props
-    if (this.state.liked) {
-      return 'You liked this.'
-    }
-
+    let { num, slots } = this.props
     return e(
       'div',
       null,
+      e(IncButton),
       e('button', {
-        onClick: () => this.props.slots.num.inc()
-      }, 'add'),
-      e('button', {
-        onClick: () => this.props.slots.num.dec()
+        onClick: () => slots.num.dec()
       }, 'dec'),
       e('p', null, 'value: ' + num)
     )
@@ -30,4 +42,4 @@ class LikeButton extends React.Component {
 
 const domContainer = document.querySelector('#main')
 
-ReactDOM.render(e(reactRimple.withSlots({ num: $num })(LikeButton)), domContainer)
+ReactDOM.render(e(reactRimple.withSlots({ num: $num })(App)), domContainer)
