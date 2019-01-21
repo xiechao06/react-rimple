@@ -1,6 +1,6 @@
 {
   "name": "react-rimple",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "react to rimple bridge",
   "main": "build/index.cjs.js",
   "module": "build/index.js",
