@@ -6,7 +6,8 @@
   "module": "dist/index.mjs",
   "source": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "standard *.js && tape -r @babel/register test.js | tap-spec",
+    "dev": "npm run test; chokidar *.js -c \"tape -r @babel/register test.js | tap-spec\"",
     "clean": "rm -rf dist",
     "prepublishOnly": "npm run build",
     "build": "npm run clean && rollup -c"
@@ -26,17 +27,25 @@
     "@babel/plugin-external-helpers": "^7.2.0",
     "@babel/plugin-transform-react-jsx": "^7.3.0",
     "@babel/preset-env": "^7.3.1",
+    "@babel/register": "^7.0.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.23",
+    "chokidar-cli": "^1.2.1",
     "clone": "^2.1.2",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.8.0",
     "parcel": "^1.11.0",
     "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "rimple": "^0.4.2",
     "rollup": "^1.1.2",
     "rollup-plugin-babel": "^4.3.2",
     "rollup-plugin-commonjs": "^9.2.0",
     "rollup-plugin-node-resolve": "^4.0.0",
     "rollup-plugin-replace": "^2.1.0",
     "rollup-plugin-uglify": "^6.0.2",
-    "standard": "^11.0.1"
+    "standard": "^11.0.1",
+    "tap-spec": "^5.0.0",
+    "tape": "^4.9.2"
   },
   "dependencies": {
     "hoist-non-react-statics": "^3.3.0",

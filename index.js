@@ -6,7 +6,7 @@ const getDisplayName = (Component) => Component.displayName || Component.name ||
 
 export const withSlots = function withSlots (slots) {
   return function (Component) {
-    class WithSlots extends React.Component {
+    class WithSlotsHOC extends React.Component {
       constructor (props) {
         super(props)
         let state = {}
@@ -39,13 +39,13 @@ export const withSlots = function withSlots (slots) {
       }
     }
     // set the displayName
-    WithSlots.displayName = `WithSlots(${getDisplayName(Component)})`
+    WithSlotsHOC.displayName = `WithSlotsHOC(${getDisplayName(Component)})`
 
     // forward refs
-    WithSlots.propTypes = {
+    WithSlotsHOC.propTypes = {
       wrappedComponentRef: PropTypes.func
     }
     // hoist statics
-    return hoistStatics(WithSlots, Component)
+    return hoistStatics(WithSlotsHOC, Component)
   }
 }
