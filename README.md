@@ -16,11 +16,18 @@ And due to the power of [rimple](www.github.com/xiechao06/rimple), the manipulat
 of states is easy and intuitive, no more courtesy like `addValue`, `decValue`, 
 just something like `n.inc()`, `n.val(30)`, `n.mutateWith(n => n * 2)`
 
-# installation
+# Installation
 
 ```bash
 $ npm i react-rimple
 ```
+
+# Usage
+
+```javascript
+import { withSlots } from 'react-rimple'
+```
+
 
 # example
 

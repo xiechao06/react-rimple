@@ -1,8 +1,9 @@
 {
   "presets": [
-    ["env", {
-      "modules": false
-    }]
+    "@babel/preset-env"
   ],
-  "plugins": ["external-helpers", "transform-object-rest-spread", "transform-react-jsx"]
+  "plugins": [
+    "@babel/plugin-transform-react-jsx",
+    "transform-react-remove-prop-types"
+  ]
 }

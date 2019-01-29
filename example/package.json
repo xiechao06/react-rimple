@@ -16,10 +16,10 @@
       "ReactDOM"
     ]
   },
-  "dependencies": {
-    "rimple": "^0.4.2"
-  },
   "devDependencies": {
     "browser-sync": "^2.26.3"
+  },
+  "dependencies": {
+    "rimple": "^0.4.2"
   }
 }

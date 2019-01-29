@@ -2,13 +2,14 @@
   "name": "react-rimple",
   "version": "1.0.3",
   "description": "react to rimple bridge",
-  "main": "build/index.cjs.js",
-  "module": "build/index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "source": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "clean": "rm -rf build",
-    "prepublishOnly": "./build.sh",
-    "build": "npx standard index.js && ./build.sh"
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run build",
+    "build": "npm run clean && rollup -c"
   },
   "repository": {
     "type": "git",
@@ -21,16 +22,24 @@
   },
   "homepage": "https://github.com/xiechao06/react-rimple#readme",
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-plugin-external-helpers": "^6.22.0",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-plugin-transform-react-jsx": "^6.24.1",
-    "babel-preset-env": "^1.6.1",
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-external-helpers": "^7.2.0",
+    "@babel/plugin-transform-react-jsx": "^7.3.0",
+    "@babel/preset-env": "^7.3.1",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.23",
+    "clone": "^2.1.2",
+    "parcel": "^1.11.0",
     "react": "^16.7.0",
-    "rollup": "^0.58.2",
-    "rollup-plugin-babel": "^3.0.4",
-    "rollup-plugin-uglify": "^3.0.0",
-    "standard": "^11.0.1",
-    "standardjs": "^1.0.0-alpha"
+    "rollup": "^1.1.2",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-node-resolve": "^4.0.0",
+    "rollup-plugin-replace": "^2.1.0",
+    "rollup-plugin-uglify": "^6.0.2",
+    "standard": "^11.0.1"
+  },
+  "dependencies": {
+    "hoist-non-react-statics": "^3.3.0",
+    "prop-types": "^15.6.2"
   }
 }

@@ -1,1 +1,1 @@
-../../build/react-rimple.browser.js
+../../dist/react-rimple.browser.js

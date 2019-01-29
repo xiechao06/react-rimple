@@ -1,8 +1,12 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+import hoistStatics from 'hoist-non-react-statics'
+
+const getDisplayName = (Component) => Component.displayName || Component.name || 'Component'
 
 export const withSlots = function withSlots (slots) {
   return function (Component) {
-    class HOC extends React.Component {
+    class WithSlots extends React.Component {
       constructor (props) {
         super(props)
         let state = {}
@@ -26,10 +30,22 @@ export const withSlots = function withSlots (slots) {
       }
 
       render () {
-        let props = Object.assign({}, this.props, this.state, { slots })
-        return <Component {...props} />
+        let { wrappedComponentRef, ...restProps } = this.props
+        return <Component
+          ref={wrappedComponentRef}
+          {...restProps}
+          {...this.state}
+          slots={slots} />
       }
     }
-    return HOC
+    // set the displayName
+    WithSlots.displayName = `WithSlots(${getDisplayName(Component)})`
+
+    // forward refs
+    WithSlots.propTypes = {
+      wrappedComponentRef: PropTypes.func
+    }
+    // hoist statics
+    return hoistStatics(WithSlots, Component)
   }
 }
